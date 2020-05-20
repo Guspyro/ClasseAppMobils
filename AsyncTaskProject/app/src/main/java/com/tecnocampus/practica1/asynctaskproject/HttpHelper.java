@@ -57,7 +57,7 @@ public class HttpHelper extends AsyncTask<String, String, String> {
         }
     }
 
-    private interface HttpHelperResponseHandler {
+    public interface HttpHelperResponseHandler {
         void setHttpHelperResponse(String result);
     }
 }
