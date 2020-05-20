@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements HttpHelper.HttpHe
 
         HttpHelper task = new HttpHelper();
         task.delegate = this;
-        String url = "https://jsonpalceholder.com/users/";
+        String url = "https://jsonplaceholder.typicode.com/users";
         task.execute(url);
     }
 
