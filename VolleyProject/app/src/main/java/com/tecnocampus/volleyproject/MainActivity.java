@@ -10,8 +10,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,11 +34,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchData(String url, RequestQueue queue) {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
+        JsonArrayRequest stringRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(String response) {
-                        jsonResult.setText(response);
+                    public void onResponse(JSONArray response) {
+                        try {
+                            JSONObject firstUser = response.getJSONObject(0);
+                            jsonResult.setText(firstUser.toString());
+                        } catch (Exception e) {
+                            Log.d("CustomTag", "Error parsing json array");
+                        }
                     }
                 },
                 new Response.ErrorListener() {
