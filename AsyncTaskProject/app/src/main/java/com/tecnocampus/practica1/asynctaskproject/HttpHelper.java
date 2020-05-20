@@ -30,7 +30,7 @@ public class HttpHelper extends AsyncTask<String, String, String> {
                     }
                 }
             } catch (Exception e) {
-                Log.d("SwA", "Error --> Load content from " + contentUrl + ": " + e.getMessage());
+                Log.d("CustomTag", "Error --> Load content from " + contentUrl + ": " + e.getMessage());
             }
 
         }
