@@ -9,8 +9,8 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static String CHANNEL_ID;
-    private static int NOTIFICATION_ID = 42;
+    public static String CHANNEL_ID = "Channel_42";
+    public static int NOTIFICATION_ID = 42;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
